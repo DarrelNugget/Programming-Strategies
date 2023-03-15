@@ -12,9 +12,7 @@ while True:
 
     category = int(input('Enter product number 1-5, or enter 0 to stop:\n '))
 
-    if category > 5:
-        print('Invalid input, please enter a valid number')
-    else:
+    if 0 < category < 6:
         quantity = int(input('Enter quantity sold:\n    '))
         if category == 1:
             sum += (models['apple phone']*quantity)
@@ -26,7 +24,10 @@ while True:
             sum += (models['android tablet']*quantity)
         elif category == 5:
             sum += (models['windows tablet']*quantity)
-        elif category == 0:
-            sum = sum
-            print('your total profit today is:',sum)
-            break
+    else:
+        print('Invalid input, please enter a valid number')
+    
+    if category == 0:
+        sum = sum
+        print('your total profit today is:',sum)
+        break
