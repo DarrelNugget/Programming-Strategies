@@ -9,7 +9,7 @@ models = {
 sum = 0
 while True:
 
-    category = int(input('Enter product number 1-5, or enter 0 to stop:\n    '))
+    category = int(input('Enter product number 1-5, or enter 0 to stop:'))
 
     if category > 5:
         print('Invalid input, please enter a valid number')
