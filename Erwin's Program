@@ -1,0 +1,41 @@
+welcome = "Welcome to Circuit Phones' Profit Calculator!"
+print(welcome)
+
+pickMethod = "You can calculate the profit of the company according to a specific day or by a week or divide the week into weekdays and weekend."
+print(pickMethod)
+
+amountSold1 = int(0)
+amountSold2 = int(0)
+amountSold3 = int(0)
+amountSold4 = int(0)
+amountSold5 = int(0)
+
+while welcome:
+        categoryInput = input("Enter product number (1 - 5), or enter 0 to stop:\n")
+        if categoryInput == "1":
+            quantity = int(input("Enter quantity sold:\n"))
+            amountSold1 = float(quantity * 120.45)
+            continue
+        if categoryInput == "2":
+            quantity = int(input("Enter quantity sold:\n"))
+            amountSold2 = float(quantity * 99.50)
+            continue
+        if categoryInput == "3":
+            quantity = int(input("Enter quantity sold:\n"))
+            amountSold3 = float(quantity * 75.69)
+            continue
+        if categoryInput == "4":
+            quantity = int(input("Enter quantity sold:\n"))
+            amountSold4 = float(quantity * 65.73)
+            continue
+        if categoryInput == "5":
+            quantity = int(input("Enter quantity sold:\n"))
+            amountSold5 = float(quantity * 51.49)
+            continue
+        if categoryInput == "0":
+            totalSales = amountSold1 + amountSold2 + amountSold3 + amountSold4 + amountSold5
+            print(f"Your total profit for today is: ${totalSales:.2f}")
+            break
+        else:
+            print("INVALID INPUT: Please enter a valid number")
+            continue
