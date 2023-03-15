@@ -15,7 +15,6 @@ while welcome:
         if categoryInput == "1":
             quantity = int(input("Enter quantity sold:\n"))
             amountSold1 = float(quantity * 120.45)
-            continue
         if categoryInput == "2":
             quantity = int(input("Enter quantity sold:\n"))
             amountSold2 = float(quantity * 99.50)

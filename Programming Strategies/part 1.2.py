@@ -5,8 +5,6 @@ models = {
     'android tablet': 65.73,
     'windows tablet': 51.49,
 }
-#dasdsaadadas
-print("Welcome to Circle Phones' Profit calculator")
 sum = 0
 while True:
 
