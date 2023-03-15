@@ -5,7 +5,7 @@ models = {
     'android tablet': 65.73,
     'windows tablet': 51.49,
 }
-
+#poo
 sum = 0
 while True:
 
