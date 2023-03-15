@@ -15,24 +15,24 @@ while True:
         print('Invalid input, please enter a valid number')
 
     elif category == 1:
-        quantity = int(input('Enter quantity sold:\n    '))
-        sum += (models['apple phone']*quantity)
+        quantity1 = int(input('Enter quantity sold:\n    '))
+        sum += (models['apple phone']*quantity1)
 
     elif category == 2:
-        quantity = int(input('Enter quantity sold:\n    '))
-        sum += (models['android phone']*quantity)
+        quantity2 = int(input('Enter quantity sold:\n    '))
+        sum += (models['android phone']*quantity2)
 
     elif category == 3:
-        quantity = int(input('Enter quantity sold:\n    '))
-        sum += (models['apple tablet']*quantity)
+        quantity3 = int(input('Enter quantity sold:\n    '))
+        sum += (models['apple tablet']*quantity3)
 
     elif category == 4:
-        quantity = int(input('Enter quantity sold:\n    '))
-        sum += (models['android tablet']*quantity)
+        quantity4 = int(input('Enter quantity sold:\n    '))
+        sum += (models['android tablet']*quantity4)
 
     elif category == 5:
-        quantity = int(input('Enter quantity sold:\n    '))
-        sum += (models['windows tablet']*quantity)
+        quantity5 = int(input('Enter quantity sold:\n    '))
+        sum += (models['windows tablet']*quantity5)
 
     if category == 0:
         sum = sum
