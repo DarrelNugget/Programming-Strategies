@@ -6,10 +6,11 @@ models = {
     'windows tablet': 51.49,
 }
 #dasdsaadadas
+print("Welcome to Circle Phones' Profit calculator")
 sum = 0
 while True:
 
-    category = int(input('Enter product number 1-5, or enter 0 to stop:'))
+    category = int(input('Enter product number 1-5, or enter 0 to stop:\n '))
 
     if category > 5:
         print('Invalid input, please enter a valid number')
