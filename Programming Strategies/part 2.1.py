@@ -43,7 +43,7 @@ while days != 0:
 
     if (days > 4):
         print('invalid input, please enter a valid number')
-    elif days == 1:#one day
+    elif(days == 1):#one day
         day_value+=1
     elif(days == 2):#whole week
         day_value+=7
