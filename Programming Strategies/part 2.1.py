@@ -78,3 +78,6 @@ while days != 0:
                     sum += (models['windows tablet']*quantity)
             else:
                 print('Invalid input, please enter a valid number')
+
+        if days == i:
+            break
