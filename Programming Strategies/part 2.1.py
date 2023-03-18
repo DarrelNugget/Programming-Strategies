@@ -74,12 +74,12 @@ while True:
              #added message for high sums
                 if category == 0 and sum >= 10000:
                     goodMsg = "You did well this period! Keep up the great work!"
-                    print(f'Your total profit {named_days_value} is: {sum:.2f}' + goodMsg)
+                    print(f'Your total profit {named_days_value} is: {sum:.2f}\n ' + goodMsg)
                     break
                 #added message for low sums
                 if category == 0 and sum < 10000:
                     badMsg = "We didn't reach our goal for this period. More work is needed!"
-                    print(f'Your total profit {named_days_value} is: {sum:.2f}' + badMsg)
+                    print(f'Your total profit {named_days_value} is: {sum:.2f}\n ' + badMsg)
                     break
                     
 
