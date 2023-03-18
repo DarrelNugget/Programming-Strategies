@@ -1,51 +1,80 @@
 welcome = "Welcome to Circuit Phones' Profit Calculator!"
 print(welcome)
 
-message = "You can calculate the profit of the company according to a specific day or by a week or divide the week into weekdays and weekend."
-print(message)
-
-amountSold1 = int(0)
-amountSold2 = int(0)
-amountSold3 = int(0)
-amountSold4 = int(0)
-amountSold5 = int(0)
-
-pickMethod = input("Enter:\n1 - For specific day\n2 - For the Week\n3 - For Week Business Days\n4 - For Weekend Days\n0 - Exit\n")
-
 while welcome:
+    amountSold = int(0)
+    message = "You can calculate the profit of the company according to a specific day or by a week or divide the week into weekdays and weekend."
+    print(message)
+    pickMethod = input("Enter:\n1 - For specific day\n2 - For the Week\n3 - For Week Business Days\n4 - For Weekend Days\n0 - Exit\n")
     if pickMethod == "0":
         break
     if pickMethod == "1":
-        pickMethod = input("Enter a specific day [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]")
-        True
-    elif pickMethod == "2":
-        pickMethod = input("For Monday"), input("For Tuesday")
-        True
-    categoryInput = input("Enter product number (1 - 5), or enter 0 to stop:\n")
-    if categoryInput == "1":
-        quantity = int(input("Enter quantity sold:\n"))
-        amountSold1 = float(quantity * 120.45)
-        True
-    if categoryInput == "2":
-        quantity = int(input("Enter quantity sold:\n"))
-        amountSold2 = float(quantity * 99.50)
-        True
-    if categoryInput == "3":
-        quantity = int(input("Enter quantity sold:\n"))
-        amountSold3 = float(quantity * 75.69)
-        True
-    if categoryInput == "4":
-        quantity = int(input("Enter quantity sold:\n"))
-        amountSold4 = float(quantity * 65.73)
-        True
-    if categoryInput == "5":
-        quantity = int(input("Enter quantity sold:\n"))
-        amountSold5 = float(quantity * 51.49)
-        True
-    if categoryInput == "0":
-        totalSales = amountSold1 + amountSold2 + amountSold3 + amountSold4 + amountSold5
-        print(f"Your total profit for today is: ${totalSales:.2f}")
-        True
-    else:
-        print("INVALID INPUT: Please enter a valid number")
-        True
+        pickMethod = input("Enter a specific day [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]\n")
+        print(f"For {pickMethod}")
+        
+    if pickMethod == "2":
+        pickMethod = input("For Monday\n"), input("For Tuesday\n"), input("For Wednesday\n"), input("For Thursday\n"),
+        input("For Friday\n"), input("For Saturday\n"), input("For Sunday\n")
+        
+    if pickMethod == "3":
+        pickMethod = input("For Monday\n"), input("For Tuesday\n"), input("For Wednesday\n"), input("For Thursday\n"),
+        input("For Friday\n")
+        
+    if pickMethod == "4":
+        pickMethod = input("For Saturday\n"), input("For Sunday\n")
+        
+    while pickMethod:
+        periodOfTime = pickMethod
+        category = int(input("Enter product number (1 - 5), or enter 0 to stop:\n"))
+        if 0 <= category < 6:
+            if category == 0 and amountSold >= 10000:
+                goodMsg = "You did well this period! Keep up the great work!"
+                print(f"Your total profit for {periodOfTime} is: ${amountSold:.2f}\n" + goodMsg)
+                break
+
+            if category == 0 and amountSold < 10000:
+                badMsg = "We didn't reach our goal for this period. More work is needed!"
+                print(f"Your total profit for {periodOfTime} is: ${amountSold:.2f}\n" + badMsg)
+                break
+            
+            quantity = float(input("Enter quantity sold:\n"))
+            catCalcs1 = float(120.45 * quantity)
+            catCalcs2 = float(99.50 * quantity)
+            catCalcs3 = float(75.69 * quantity)
+            catCalcs4 = float(65.73 * quantity)
+            catCalcs5 = float(51.49 * quantity)
+            if category == 1:
+                amountSold += catCalcs1
+                
+            if category == 2:
+                amountSold += catCalcs2
+                
+            if category == 3:
+                amountSold += catCalcs3
+                
+            if category == 4:
+                amountSold += catCalcs4
+                
+            if category == 5:
+                amountSold += catCalcs5
+                
+        else:
+            print("INVALID INPUT: Please enter a valid input")
+            continue
+
+#catCalcs1 = float(quantity * 120.45)
+#catCalcs2 = float(quantity * 99.50)
+#catCalcs3 = float(quantity * 75.69)
+#catCalcs4 = float(quantity * 65.73)
+#catCalcs5 = float(quantity * 51.49)
+
+#calculator = {
+#    'calculate1': catCalcs1,
+#    'calculate2': catCalcs2,
+#    'calculate3': catCalcs3,
+#    'calculate4': catCalcs4,
+#   'calculate5': catCalcs5,
+#    'calculateNormal': 0
+#}
+
+#print(f"Total profit today is: ${calculator['calculate1']:.2f}")

@@ -72,8 +72,9 @@ while True:
 
             if 0 <= category < 6:
                 if category == 0:
-                    print('your total profit today is:',sum,'\n')
+                    print('your total profit today is:',sum)
                     break
+
                 quantity = int(input('Enter quantity sold:\n'))
 
                 if category == 1:
