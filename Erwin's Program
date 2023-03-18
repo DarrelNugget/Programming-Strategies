@@ -3,6 +3,7 @@ print(welcome)
 
 while welcome:
     amountSold = int(0)
+    quantity = int(0)
     message = "You can calculate the profit of the company according to a specific day or by a week or divide the week into weekdays and weekend."
     print(message)
     pickMethod = input("Enter:\n1 - For specific day\n2 - For the Week\n3 - For Week Business Days\n4 - For Weekend Days\n0 - Exit\n")
@@ -24,51 +25,51 @@ while welcome:
         True
     while pickMethod:
         category = input("Enter product number (1 - 5), or enter 0 to stop:\n")
-        if category == "1":
-            quantity = int(input("Enter quantity sold:\n"))
-            amountSold += float(quantity * 120.45)
-            continue
-        elif category == "2":
-            quantity = int(input("Enter quantity sold:\n"))
-            amountSold += float(quantity * 99.50)
-            continue
-        elif category == "3":
-            quantity = int(input("Enter quantity sold:\n"))
-            amountSold += float(quantity * 75.69)
-            continue
-        elif category == "4":
-            quantity = int(input("Enter quantity sold:\n"))
-            amountSold += float(quantity * 65.73)
-            continue
-        elif category == "5":
-            quantity = int(input("Enter quantity sold:\n"))
-            amountSold += float(quantity * 51.49)
-            continue
-        elif category == "0":
+        catCalcs1 = float(120.45 * quantity)
+        catCalcs2 = float(99.50 * quantity)
+        catCalcs3 = float(75.69 * quantity)
+        catCalcs4 = float(65.73 * quantity)
+        catCalcs5 = float(51.49 * quantity)
+        if category == "0":
             print(f"Your total profit for today is: ${amountSold:.2f}")
             break
+        if category == "1":
+            quantity = float(input("Enter quantity sold:\n"))
+            amountSold += catCalcs1
+            continue
+        if category == "2":
+            quantity = float(input("Enter quantity sold:\n"))
+            amountSold += catCalcs2
+            continue
+        if category == "3":
+            quantity = float(input("Enter quantity sold:\n"))
+            amountSold += catCalcs3
+            continue
+        if category == "4":
+            quantity = float(input("Enter quantity sold:\n"))
+            amountSold += catCalcs4
+            continue
+        if category == "5":
+            quantity = float(input("Enter quantity sold:\n"))
+            amountSold += catCalcs5
+            continue
         else:
             print("INVALID INPUT: Please enter a valid input")
             continue
 
-catCalcs1 = float(quantity * 120.45)
-catCalcs2 = float(quantity * 99.50)
-catCalcs3 = float(quantity * 75.69)
-catCalcs4 = float(quantity * 65.73)
-catCalcs5 = float(quantity * 51.49)
+#catCalcs1 = float(quantity * 120.45)
+#catCalcs2 = float(quantity * 99.50)
+#catCalcs3 = float(quantity * 75.69)
+#catCalcs4 = float(quantity * 65.73)
+#catCalcs5 = float(quantity * 51.49)
 
-calculate1 = 0
-calculate2 = 0
-calculate3 = 0
-calculate4 = 0
-calculate5 = 0
-calculateNormal = 0
+#calculator = {
+#    'calculate1': catCalcs1,
+#    'calculate2': catCalcs2,
+#    'calculate3': catCalcs3,
+#    'calculate4': catCalcs4,
+#   'calculate5': catCalcs5,
+#    'calculateNormal': 0
+#}
 
-calculator = {
-    calculate1:catCalcs1,
-    calculate2:catCalcs2,
-    calculate3:catCalcs3,
-    calculate4:catCalcs4,
-    calculate5:catCalcs5,
-    calculateNormal:None
-}
+#print(f"Total profit today is: ${calculator['calculate1']:.2f}")
