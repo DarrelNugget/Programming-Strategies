@@ -3,52 +3,52 @@ print(welcome)
 
 while welcome:
     amountSold = int(0)
-    quantity = int(0)
     message = "You can calculate the profit of the company according to a specific day or by a week or divide the week into weekdays and weekend."
     print(message)
     pickMethod = input("Enter:\n1 - For specific day\n2 - For the Week\n3 - For Week Business Days\n4 - For Weekend Days\n0 - Exit\n")
     if pickMethod == "0":
         break
-    elif pickMethod == "1":
+    if pickMethod == "1":
         pickMethod = input("Enter a specific day [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]\n")
-        True
-    elif pickMethod == "2":
+        
+    if pickMethod == "2":
         pickMethod = input("For Monday\n"), input("For Tuesday\n"), input("For Wednesday\n"), input("For Thursday\n"),
         input("For Friday\n"), input("For Saturday\n"), input("For Sunday\n")
-        True
-    elif pickMethod == "3":
+        
+    if pickMethod == "3":
         pickMethod = input("For Monday\n"), input("For Tuesday\n"), input("For Wednesday\n"), input("For Thursday\n"),
         input("For Friday\n")
-        True
-    elif pickMethod == "4":
+        
+    if pickMethod == "4":
         pickMethod = input("For Saturday\n"), input("For Sunday\n")
-        True
+        
     while pickMethod:
-        category = input("Enter product number (1 - 5), or enter 0 to stop:\n")
-        quantity = float(input("Enter quantity sold:\n"))
-        catCalcs1 = float(120.45 * quantity)
-        catCalcs2 = float(99.50 * quantity)
-        catCalcs3 = float(75.69 * quantity)
-        catCalcs4 = float(65.73 * quantity)
-        catCalcs5 = float(51.49 * quantity)
-        if category == "1":
-            amountSold += catCalcs1
-            continue
-        elif category == "2":
-            amountSold += catCalcs2
-            continue
-        elif category == "3":
-            amountSold += catCalcs3
-            continue
-        elif category == "4":
-            amountSold += catCalcs4
-            continue
-        elif category == "5":
-            amountSold += catCalcs5
-            continue
-        elif category == "0":
-            print(f"Your total profit for today is: ${amountSold:.2f}")
-            break
+        category = int(input("Enter product number (1 - 5), or enter 0 to stop:\n"))
+        if 0 <= category < 6:
+            if category == 0:
+                print(f"Your total profit for today is: ${amountSold:.2f}")
+                break
+            quantity = float(input("Enter quantity sold:\n"))
+            catCalcs1 = float(120.45 * quantity)
+            catCalcs2 = float(99.50 * quantity)
+            catCalcs3 = float(75.69 * quantity)
+            catCalcs4 = float(65.73 * quantity)
+            catCalcs5 = float(51.49 * quantity)
+            if category == 1:
+                amountSold += catCalcs1
+                
+            if category == 2:
+                amountSold += catCalcs2
+                
+            if category == 3:
+                amountSold += catCalcs3
+                
+            if category == 4:
+                amountSold += catCalcs4
+                
+            if category == 5:
+                amountSold += catCalcs5
+                
         else:
             print("INVALID INPUT: Please enter a valid input")
             continue
