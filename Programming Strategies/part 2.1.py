@@ -47,15 +47,20 @@ while True:
         #moved this line up 
 
 
-    if(days == 1):#one day
-        day_value+=1
-
+    if(days == 1):#this should be working now
         spec_days = (input('''
     Enter a specific day [Monday, Tuesday, 
     Wednesday, Thursday, Friday, Saturday, 
     Sunday]
 
     '''))
+        first = spec_days[0]
+        rest = spec_days[1:]
+        for keys in named_days_value:
+            day = first.upper() + rest.lower()
+            if day == keys:
+                print("For",keys)
+
     elif(days == 2):#whole week
         day_value+=7
     elif(days == 3):#work week
@@ -65,7 +70,7 @@ while True:
 
     sum = 0
     for i in range(0,day_value):
-        print(f'for {named_days_value.keys()}\n')
+        print(f'For {named_days_value.keys()}\n')
         while True:
             #so the for whatever day doesnt repeat, its been moved out of the while loop
             category = int(input('Enter product number 1-5, or enter 0 to stop:\n'))
@@ -74,12 +79,12 @@ while True:
              #added message for high sums
                 if category == 0 and sum >= 10000:
                     goodMsg = "You did well this period! Keep up the great work!"
-                    print(f'Your total profit {named_days_value} is: {sum:.2f}\n ' + goodMsg)
+                    print(f'Your total profit {named_days_value} is: {sum:.2f}' + goodMsg)
                     break
                 #added message for low sums
                 if category == 0 and sum < 10000:
                     badMsg = "We didn't reach our goal for this period. More work is needed!"
-                    print(f'Your total profit {named_days_value} is: {sum:.2f}\n ' + badMsg)
+                    print(f'Your total profit {named_days_value} is: {sum:.2f}' + badMsg)
                     break
                     
 
