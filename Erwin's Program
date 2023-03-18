@@ -4,48 +4,49 @@ print(welcome)
 message = "You can calculate the profit of the company according to a specific day or by a week or divide the week into weekdays and weekend."
 print(message)
 
-amountSold1 = int(0)
-amountSold2 = int(0)
-amountSold3 = int(0)
-amountSold4 = int(0)
-amountSold5 = int(0)
-
-pickMethod = input("Enter:\n1 - For specific day\n2 - For the Week\n3 - For Week Business Days\n4 - For Weekend Days\n0 - Exit\n")
-
 while welcome:
+    amountSold = int(0)
+    pickMethod = input("Enter:\n1 - For specific day\n2 - For the Week\n3 - For Week Business Days\n4 - For Weekend Days\n0 - Exit\n")
     if pickMethod == "0":
         break
-    if pickMethod == "1":
-        pickMethod = input("Enter a specific day [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]")
+    elif pickMethod == "1":
+        pickMethod = input("Enter a specific day [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]\n")
         True
     elif pickMethod == "2":
-        pickMethod = input("For Monday"), input("For Tuesday")
+        pickMethod = input("For Monday\n"), input("For Tuesday\n"), input("For Wednesday\n"), input("For Thursday\n"),
+        input("For Friday\n"), input("For Saturday\n"), input("For Sunday\n")
+        True
+    elif pickMethod == "3":
+        pickMethod = input("For Monday\n"), input("For Tuesday\n"), input("For Wednesday\n"), input("For Thursday\n"),
+        input("For Friday\n")
+        True
+    elif pickMethod == "4":
+        pickMethod = input("For Saturday\n"), input("For Sunday\n")
         True
     categoryInput = input("Enter product number (1 - 5), or enter 0 to stop:\n")
     if categoryInput == "1":
         quantity = int(input("Enter quantity sold:\n"))
-        amountSold1 = float(quantity * 120.45)
+        amountSold += float(quantity * 120.45)
         True
     if categoryInput == "2":
         quantity = int(input("Enter quantity sold:\n"))
-        amountSold2 = float(quantity * 99.50)
+        amountSold += float(quantity * 99.50)
         True
     if categoryInput == "3":
         quantity = int(input("Enter quantity sold:\n"))
-        amountSold3 = float(quantity * 75.69)
+        amountSold += float(quantity * 75.69)
         True
     if categoryInput == "4":
         quantity = int(input("Enter quantity sold:\n"))
-        amountSold4 = float(quantity * 65.73)
+        amountSold += float(quantity * 65.73)
         True
     if categoryInput == "5":
         quantity = int(input("Enter quantity sold:\n"))
-        amountSold5 = float(quantity * 51.49)
+        amountSold += float(quantity * 51.49)
         True
     if categoryInput == "0":
-        totalSales = amountSold1 + amountSold2 + amountSold3 + amountSold4 + amountSold5
-        print(f"Your total profit for today is: ${totalSales:.2f}")
-        True
+        print(f"Your total profit for today is: ${amountSold:.2f}")
+        continue
     else:
         print("INVALID INPUT: Please enter a valid number")
         True
