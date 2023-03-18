@@ -21,25 +21,31 @@ day_value = 0
 print('Welcome to Circle Phones Profit calculator\n')
 print('You can calculate the profit of the company according to a specific day or by a week or divide the week into weekdays and weekend\n')
 
+
 days = int(input('''
 Enter:
 1-For a specific day
 2-For the week
 3-For the week buisness days
 4-For weekend days
-0-Exit\n'''))
+0-Exit
+
+'''))
 
 named_days = (input('''
 Enter a specific day [Monday, Tuesday, 
 Wednesday, Thursday, Friday, Saturday, 
 Sunday]
+
 '''))
 
 
 
 #moved the days_value into while loop below
 
-while days != 0:
+while True:
+
+
 
     if (days > 4):
         print('invalid input, please enter a valid number')
@@ -57,7 +63,7 @@ while days != 0:
     sum = 0
     for i in range(1,day_value):
         while True:
-            print(f'for {named_days}')
+            print(f'for {named_days}\n')
             category = int(input('Enter product number 1-5, or enter 0 to stop:\n'))
 
             if 0 <= category < 6:
