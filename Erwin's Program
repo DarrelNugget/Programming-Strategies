@@ -22,31 +22,31 @@ while welcome:
     elif pickMethod == "4":
         pickMethod = input("For Saturday\n"), input("For Sunday\n")
         True
-    categoryInput = input("Enter product number (1 - 5), or enter 0 to stop:\n")
-    while categoryInput:
-        if categoryInput == "1":
+    while pickMethod:
+        category = input("Enter product number (1 - 5), or enter 0 to stop:\n")
+        if category == "1":
             quantity = int(input("Enter quantity sold:\n"))
             amountSold += float(quantity * 120.45)
             continue
-        if categoryInput == "2":
+        elif category == "2":
             quantity = int(input("Enter quantity sold:\n"))
             amountSold += float(quantity * 99.50)
             continue
-        if categoryInput == "3":
+        elif category == "3":
             quantity = int(input("Enter quantity sold:\n"))
             amountSold += float(quantity * 75.69)
             continue
-        if categoryInput == "4":
+        elif category == "4":
             quantity = int(input("Enter quantity sold:\n"))
             amountSold += float(quantity * 65.73)
             continue
-        if categoryInput == "5":
+        elif category == "5":
             quantity = int(input("Enter quantity sold:\n"))
             amountSold += float(quantity * 51.49)
             continue
-        if categoryInput == "0":
+        elif category == "0":
             print(f"Your total profit for today is: ${amountSold:.2f}")
             break
         else:
-            print("INVALID INPUT: Please enter a valid number")
-            True
+            print("INVALID INPUT: Please enter a valid input")
+            continue
