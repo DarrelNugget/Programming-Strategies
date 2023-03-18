@@ -50,3 +50,25 @@ while welcome:
         else:
             print("INVALID INPUT: Please enter a valid input")
             continue
+
+catCalcs1 = float(quantity * 120.45)
+catCalcs2 = float(quantity * 99.50)
+catCalcs3 = float(quantity * 75.69)
+catCalcs4 = float(quantity * 65.73)
+catCalcs5 = float(quantity * 51.49)
+
+calculate1 = 0
+calculate2 = 0
+calculate3 = 0
+calculate4 = 0
+calculate5 = 0
+calculateNormal = 0
+
+calculator = {
+    calculate1:catCalcs1,
+    calculate2:catCalcs2,
+    calculate3:catCalcs3,
+    calculate4:catCalcs4,
+    calculate5:catCalcs5,
+    calculateNormal:None
+}
