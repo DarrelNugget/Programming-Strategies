@@ -57,6 +57,7 @@ while True:
 
     elif(days == 2):#whole week
         day_value+=7
+        
     elif(days == 3):#work week
         day_value+=5
     elif(days == 4):#weekends
@@ -64,8 +65,12 @@ while True:
 
     sum = 0
     for i in range(0,day_value):
+        #for statement might not be needed
         while True:
-            #so the for whatever day doesnt repeat, its been moved out of the while loop
+            if days == 2:
+                for week in named_days_value.keys():
+                    print(f'for {week}')
+                
             category = int(input('Enter product number 1-5, or enter 0 to stop:\n'))
 
             if 0 <= category < 6:
@@ -95,6 +100,5 @@ while True:
                     sum += (models['windows tablet']*quantity)
             else:
                 print('Invalid input, please enter a valid number')
-
-        if days == i:
-            break
+    if days == i:
+        break
