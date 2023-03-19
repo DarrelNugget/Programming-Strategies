@@ -12,7 +12,7 @@ named_days_value = {
 }
 
 daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-weekendDays = ['Saturday', 'Sunday']
+methods = ['0', '1', '2', '3', '4']
 
 day = 0
 
@@ -23,45 +23,40 @@ while welcome:
     print(message)
     pickMethod = input("Enter:\n1 - For specific day\n2 - For the Week\n3 - For Week Business Days\n4 - For Weekend Days\n0 - Exit\n")
 
-    if pickMethod == "0":
+    if pickMethod == methods[0]:
         print("Program End")
         break
 
-    if pickMethod == "1":
+    if pickMethod == methods[1]:
         days = input(choiceOfDays)
         first = days[0]
         rest = days[1:]
+        day = first.upper() + rest.lower() 
         for keys in named_days_value:
-            day = first.upper() + rest.lower()
             if day == keys:
                 print("For",keys)
                 continue
-        
-        else:
-            print("INVALID INPUT: Please enter a valid input")
-            continue
     
-    else:
+    if pickMethod not in methods:
         print("INVALID INPUT: Please enter a valid input")
         continue
 
-
     while message:
 
-        if pickMethod == "2" and day == daysOfWeek[6]:
+        if pickMethod == methods[2] and day == daysOfWeek[6]:
             print(f"Total profit for the week is: ${amountSold:.2f}\n" + "You did good this week!")
             day = 0
             break
-        if pickMethod == "3" and day == daysOfWeek[4]:
-            print(f"Total profit for the week is (business days): ${amountSold:.2f}\n" + "You did good this week (business days!")
+        if pickMethod == methods[3] and day == daysOfWeek[4]:
+            print(f"Total profit for the week is (business days): ${amountSold:.2f}\n" + "You did good this week (business days)!")
             day = 0
             break
-        if pickMethod == "4" and day == daysOfWeek[6]:
+        if pickMethod == methods[4] and day == daysOfWeek[6]:
             print(f"Total profit for the weekend is: ${amountSold:.2f}\n" + "You did good this weekend!")
             day = 0
             break
 
-        while pickMethod == "2":
+        while pickMethod == methods[2]:
             if day == 0:
                 day = daysOfWeek[0]
                 print("For",day)
@@ -92,7 +87,7 @@ while welcome:
                 break
             if day == daysOfWeek[6]:
                 break
-        while pickMethod == "3":
+        while pickMethod == methods[3]:
             if day == 0:
                 day = daysOfWeek[0]
                 print("For",day)
@@ -115,7 +110,7 @@ while welcome:
                 break
             if day == daysOfWeek[4]:
                 break
-        while pickMethod == "4":
+        while pickMethod == methods[4]:
             if day == 0:
                 day = daysOfWeek[5]
                 print("For",day)
@@ -125,22 +120,24 @@ while welcome:
                 print("For",day)
                 break
         category = int(input("Enter product number (1 - 5), or enter 0 to stop:\n"))
-        if pickMethod == "1" and category == 0 and amountSold >= 10000:
+        if pickMethod == methods[1] and category == 0 and amountSold >= 10000:
             day = 0
             print(f"Total profit for the {periodOfTime} is: ${amountSold:.2f}\n" + goodMsg)
             break
-        if pickMethod == "1" and category == 0 and amountSold < 10000:
+        if pickMethod == methods[1] and category == 0 and amountSold < 10000:
             day = 0
             print(f"Total profit for the {periodOfTime} is: ${amountSold:.2f}\n" + badMsg)
             break
         periodOfTime = day
+
+        #calculator:
         if 0 <= category < 6:
 
-            if pickMethod == "2" and category == 0:
+            if pickMethod == methods[2] and category == 0:
                 continue
-            if pickMethod == "3" and category == 0:
+            if pickMethod == methods[3] and category == 0:
                 continue
-            if pickMethod == "4" and category == 0:
+            if pickMethod == methods[4] and category == 0:
                 continue
 
             goodMsg = "You did well this period! Keep up the great work!"
