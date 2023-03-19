@@ -68,7 +68,7 @@ while True:
         #for statement might not be needed
         while True:
             if days == 2:
-                for week in named_days_value.keys():
+                for week in named_days_value.keys[keys]:
                     print(f'for {week}')
                 
             category = int(input('Enter product number 1-5, or enter 0 to stop:\n'))
