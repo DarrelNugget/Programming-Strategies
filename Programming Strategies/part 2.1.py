@@ -19,8 +19,6 @@ named_days_value = {
 print('Welcome to Circle Phones Profit calculator\n')
 #looped the welcome
 
-#moved the days_value into while loop below
-
 day_value = 0
 
 while True:
@@ -40,11 +38,6 @@ while True:
         break
     elif (days > 4):
         print('invalid input, please enter a valid number')
-
-
-    #if (days > 4):
-        #print('invalid input, please enter a valid number')
-        #moved this line up 
 
 
     if(days == 1):#this should be working now
