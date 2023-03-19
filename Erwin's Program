@@ -4,6 +4,7 @@ print(welcome)
 daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 methods = ['0', '1', '2', '3', '4']
 categories = ['0', '1', '2', '3', '4', '5']
+errorMsg = "INAVLID INPUT: Please enter a valid input"
 
 while welcome:
     day = 0
@@ -19,7 +20,7 @@ while welcome:
         break
     
     if pickMethod not in methods:
-        print("INVALID INPUT: Please enter a valid input")
+        print(errorMsg)
         continue
 
     while message:
@@ -55,13 +56,14 @@ while welcome:
             print(f"Total profit for the weekend is: ${amountSold:.2f}\n" + f"We didn't reach our goal for this {period[2]}. More work is needed!")
             day = 0
             break
+        
         if pickMethod == methods[1] and day == 0:
             days = input(choiceOfDays)
             first = days[0]
             rest = days[1:]
             day = first.upper() + rest.lower()
             if day not in daysOfWeek:
-                print("INVALID INPUT: Please enter a valid input")
+                print(errorMsg)
                 break
             if day in daysOfWeek:
                 print("For", day)
@@ -105,7 +107,7 @@ while welcome:
         category = input("Enter product number (1 - 5), or enter 0 to stop:\n")
 
         if category not in categories:
-            print("INVALID INPUT: Please enter a valid number")
+            print(errorMsg)
             continue
 
         #calculator:
@@ -154,5 +156,5 @@ while welcome:
                 amountSold += catCalcs5
                 
         else:
-            print("INVALID INPUT: Please enter a valid input")
+            print(errorMsg)
             continue
