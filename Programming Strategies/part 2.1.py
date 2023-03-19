@@ -48,6 +48,7 @@ while True:
 
 
     if(days == 1):#this should be working now
+        day_value+=1
         spec_days = (input('''
     Enter a specific day [Monday, Tuesday, 
     Wednesday, Thursday, Friday, Saturday, 
@@ -70,7 +71,6 @@ while True:
 
     sum = 0
     for i in range(0,day_value):
-        print(f'For {named_days_value.keys()}\n')
         while True:
             #so the for whatever day doesnt repeat, its been moved out of the while loop
             category = int(input('Enter product number 1-5, or enter 0 to stop:\n'))
@@ -79,12 +79,12 @@ while True:
              #added message for high sums
                 if category == 0 and sum >= 10000:
                     goodMsg = "You did well this period! Keep up the great work!"
-                    print(f'Your total profit {named_days_value} is: {sum:.2f}' + goodMsg)
+                    print(f'Your total profit for {day} is: {sum:.2f} ' + goodMsg)
                     break
                 #added message for low sums
                 if category == 0 and sum < 10000:
                     badMsg = "We didn't reach our goal for this period. More work is needed!"
-                    print(f'Your total profit {named_days_value} is: {sum:.2f}' + badMsg)
+                    print(f'Your total profit for {day} is: {sum:.2f} ' + badMsg)
                     break
                     
 
