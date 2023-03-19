@@ -12,9 +12,9 @@ named_days_value = {
 }
 
 daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+weekendDays = ['Saturday', 'Sunday']
 
 day = 0
-weekendDays = "Sunday" and "Saturday"
 
 while welcome:
     amountSold = int(0)
@@ -36,8 +36,18 @@ while welcome:
             if day == keys:
                 print("For",keys)
                 continue
+        
+        else:
+            print("INVALID INPUT: Please enter a valid input")
+            continue
+    
+    else:
+        print("INVALID INPUT: Please enter a valid input")
+        continue
+
 
     while message:
+
         if pickMethod == "2" and day == daysOfWeek[6]:
             print(f"Total profit for the week is: ${amountSold:.2f}\n" + "You did good this week!")
             day = 0
@@ -46,6 +56,11 @@ while welcome:
             print(f"Total profit for the week is (business days): ${amountSold:.2f}\n" + "You did good this week (business days!")
             day = 0
             break
+        if pickMethod == "4" and day == daysOfWeek[6]:
+            print(f"Total profit for the weekend is: ${amountSold:.2f}\n" + "You did good this weekend!")
+            day = 0
+            break
+
         while pickMethod == "2":
             if day == 0:
                 day = daysOfWeek[0]
@@ -101,12 +116,12 @@ while welcome:
             if day == daysOfWeek[4]:
                 break
         while pickMethod == "4":
-            if day == 2:
-                day = "Saturday"
+            if day == 0:
+                day = daysOfWeek[5]
                 print("For",day)
                 break
-            if day == "Saturday":
-                day = "Sunday"
+            if day == daysOfWeek[5]:
+                day = daysOfWeek[6]
                 print("For",day)
                 break
         category = int(input("Enter product number (1 - 5), or enter 0 to stop:\n"))
