@@ -11,6 +11,8 @@ named_days_value = {
     'Sunday':0,
 }
 
+day = 0
+
 while welcome:
     amountSold = int(0)
     message = "You can calculate the profit of the company according to a specific day or by a week or divide the week into weekdays and weekend."
@@ -30,31 +32,64 @@ while welcome:
             day = first.upper() + rest.lower()
             if day == keys:
                 print("For",keys)
-        
-    if pickMethod == "2":
-        days = input("For Monday\n"), input("For Tuesday\n"), input("For Wednesday\n"), input("For Thursday\n"),
-        input("For Friday\n"), input("For Saturday\n"), input("For Sunday\n")
-        True
-        
+                continue
+    
     if pickMethod == "3":
         days = input("For Monday\n"), input("For Tuesday\n"), input("For Wednesday\n"), input("For Thursday\n"),
         input("For Friday\n")
         
     if pickMethod == "4":
         days = input("For Saturday\n"), input("For Sunday\n")
-        
-    while pickMethod:
-        periodOfTime = days.lower()
+
+    while message:
+        if day == "Sunday":
+            print(f"Total profit for the week is: ${amountSold:.2f}\n" + "You did good this week!")
+            break
+        while pickMethod == "2":
+            if day == 0:
+                day = "Monday"
+                print("For",day)
+                break
+            if day == "Monday":
+                day = "Tuesday"
+                print("For",day)
+                break
+            if day == "Tuesday":
+                day = "Wednesday"
+                print("For",day)
+                break
+            if day == "Wednesday":
+                day = "Thursday"
+                print("For",day)
+                break
+            if day == "Thursday":
+                day = "Friday"
+                print("For",day)
+                break
+            if day == "Friday":
+                day = "Saturday"
+                print("For",day)
+                break
+            if day == "Saturday":
+                day = "Sunday"
+                print("For",day)
+                break
+            if day == "Sunday":
+                pickMethod = None
+                break
         category = int(input("Enter product number (1 - 5), or enter 0 to stop:\n"))
+        if pickMethod == "1" and category == 0 and amountSold >= 10000:
+            day = 0
+            print(f"Total profit for the {periodOfTime} is: ${amountSold:.2f}\n" + goodMsg)
+            break
+        if pickMethod == "1" and category == 0 and amountSold < 10000:
+            day = 0
+            print(f"Total profit for the {periodOfTime} is: ${amountSold:.2f}\n" + badMsg)
+            break
+        periodOfTime = day
         if 0 <= category < 6:
-            if category == 0 and amountSold >= 10000:
-                goodMsg = "You did well this period! Keep up the great work!"
-                print(f"Your total profit for {periodOfTime} is: ${amountSold:.2f}\n" + goodMsg)
-                break
-            if category == 0 and amountSold < 10000:
-                badMsg = "We didn't reach our goal for this period. More work is needed!"
-                print(f"Your total profit for {periodOfTime} is: ${amountSold:.2f}\n" + badMsg)
-                break
+            goodMsg = "You did well this period! Keep up the great work!"
+            badMsg = "We didn't reach our goal for this period. More work is needed!"
             quantity = float(input("Enter quantity sold:\n"))
             catCalcs1 = float(120.45 * quantity)
             catCalcs2 = float(99.50 * quantity)
