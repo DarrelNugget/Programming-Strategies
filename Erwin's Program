@@ -1,22 +1,12 @@
 welcome = "Welcome to Circuit Phones' Profit Calculator!"
 print(welcome)
 
-named_days_value = {
-    'Monday':0,
-    'Tuesday':0,
-    'Wednesday':0,
-    'Thursday':0,
-    'Friday':0,
-    'Saturday':0,
-    'Sunday':0,
-}
-
 daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 methods = ['0', '1', '2', '3', '4']
-
-day = 0
+categories = ['0', '1', '2', '3', '4', '5']
 
 while welcome:
+    day = 0
     amountSold = int(0)
     message = "You can calculate the profit of the company according to a specific day or by a week or divide the week into weekdays and weekend."
     choiceOfDays = "Enter a specific day [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]\n"
@@ -26,16 +16,6 @@ while welcome:
     if pickMethod == methods[0]:
         print("Program End")
         break
-
-    if pickMethod == methods[1]:
-        days = input(choiceOfDays)
-        first = days[0]
-        rest = days[1:]
-        day = first.upper() + rest.lower() 
-        for keys in named_days_value:
-            if day == keys:
-                print("For",keys)
-                continue
     
     if pickMethod not in methods:
         print("INVALID INPUT: Please enter a valid input")
@@ -43,6 +23,10 @@ while welcome:
 
     while message:
 
+        periodOfTime = day
+        goodMsg = "You did well this period! Keep up the great work!"
+
+        #when method is picked
         if pickMethod == methods[2] and day == daysOfWeek[6]:
             print(f"Total profit for the week is: ${amountSold:.2f}\n" + "You did good this week!")
             day = 0
@@ -55,9 +39,21 @@ while welcome:
             print(f"Total profit for the weekend is: ${amountSold:.2f}\n" + "You did good this weekend!")
             day = 0
             break
+        if pickMethod == methods[1] and day == 0:
+            days = input(choiceOfDays)
+            first = days[0]
+            rest = days[1:]
+            day = first.upper() + rest.lower()
+            if day not in daysOfWeek:
+                print("INVALID INPUT: Please enter a valid input")
+                break
+            if day in daysOfWeek:
+                print("For", day)
+                continue
 
-        while pickMethod == methods[2]:
-            if day == 0:
+        #loop for printing the days in a week
+        while pickMethod == methods[2] or pickMethod == methods[3] or pickMethod == methods[4]:
+            if (day == 0 and pickMethod == methods[2]) or (day == 0 and pickMethod == methods[3]):
                 day = daysOfWeek[0]
                 print("For",day)
                 break
@@ -77,7 +73,7 @@ while welcome:
                 day = daysOfWeek[4]
                 print("For",day)
                 break
-            if day == daysOfWeek[4]:
+            if (day == daysOfWeek[4]) or (day == 0 and pickMethod == methods[4]):
                 day = daysOfWeek[5]
                 print("For",day)
                 break
@@ -86,62 +82,36 @@ while welcome:
                 print("For",day)
                 break
             if day == daysOfWeek[6]:
+                day = 0
                 break
-        while pickMethod == methods[3]:
-            if day == 0:
-                day = daysOfWeek[0]
-                print("For",day)
-                break
-            if day == daysOfWeek[0]:
-                day = daysOfWeek[1]
-                print("For",day)
-                break
-            if day == daysOfWeek[1]:
-                day = daysOfWeek[2]
-                print("For",day)
-                break
-            if day == daysOfWeek[2]:
-                day = daysOfWeek[3]
-                print("For",day)
-                break
-            if day == daysOfWeek[3]:
-                day = daysOfWeek[4]
-                print("For",day)
-                break
-            if day == daysOfWeek[4]:
-                break
-        while pickMethod == methods[4]:
-            if day == 0:
-                day = daysOfWeek[5]
-                print("For",day)
-                break
-            if day == daysOfWeek[5]:
-                day = daysOfWeek[6]
-                print("For",day)
-                break
-        category = int(input("Enter product number (1 - 5), or enter 0 to stop:\n"))
-        if pickMethod == methods[1] and category == 0 and amountSold >= 10000:
-            day = 0
-            print(f"Total profit for the {periodOfTime} is: ${amountSold:.2f}\n" + goodMsg)
-            break
-        if pickMethod == methods[1] and category == 0 and amountSold < 10000:
-            day = 0
-            print(f"Total profit for the {periodOfTime} is: ${amountSold:.2f}\n" + badMsg)
-            break
-        periodOfTime = day
+        
+        #category must be here
+        category = input("Enter product number (1 - 5), or enter 0 to stop:\n")
+
+        if category not in categories:
+            print("INVALID INPUT: Please enter a valid number")
+            continue
 
         #calculator:
-        if 0 <= category < 6:
+        if category in categories:
 
-            if pickMethod == methods[2] and category == 0:
+            if pickMethod == methods[1] and amountSold >= 10000 and category == "0":
+                print(f"Total profit for the {periodOfTime} is: ${amountSold:.2f}\n" + goodMsg)
+                day = 0
+                break
+            if pickMethod == methods[1] and  0 != amountSold < 10000 and category == "0":
+                badMsg = f"More hard work needed...The last {periodOfTime} wasn't the best"
+                print(f"Total profit for the {periodOfTime} is: ${amountSold:.2f}\n" + badMsg)
+                day = 0
+                break
+
+            if pickMethod == methods[2] and category == "0":
                 continue
-            if pickMethod == methods[3] and category == 0:
+            if pickMethod == methods[3] and category == "0":
                 continue
-            if pickMethod == methods[4] and category == 0:
+            if pickMethod == methods[4] and category == "0":
                 continue
 
-            goodMsg = "You did well this period! Keep up the great work!"
-            badMsg = f"More hard work needed...The last {periodOfTime} wasn't the best"
             quantity = float(input("Enter quantity sold:\n"))
             catCalcs1 = float(120.45 * quantity)
             catCalcs2 = float(99.50 * quantity)
@@ -149,38 +119,24 @@ while welcome:
             catCalcs4 = float(65.73 * quantity)
             catCalcs5 = float(51.49 * quantity)
 
-            if category == 1:
+            if pickMethod == methods[1] and category in categories == "0":
+                continue
+
+            if category == "1":
                 amountSold += catCalcs1
                 
-            if category == 2:
+            if category == "2":
                 amountSold += catCalcs2
                 
-            if category == 3:
+            if category == "3":
                 amountSold += catCalcs3
                 
-            if category == 4:
+            if category == "4":
                 amountSold += catCalcs4
                 
-            if category == 5:
+            if category == "5":
                 amountSold += catCalcs5
                 
         else:
             print("INVALID INPUT: Please enter a valid input")
             continue
-
-#catCalcs1 = float(quantity * 120.45)
-#catCalcs2 = float(quantity * 99.50)
-#catCalcs3 = float(quantity * 75.69)
-#catCalcs4 = float(quantity * 65.73)
-#catCalcs5 = float(quantity * 51.49)
-
-#calculator = {
-#    'calculate1': catCalcs1,
-#    'calculate2': catCalcs2,
-#    'calculate3': catCalcs3,
-#    'calculate4': catCalcs4,
-#   'calculate5': catCalcs5,
-#    'calculateNormal': 0
-#}
-
-#print(f"Total profit today is: ${calculator['calculate1']:.2f}")
