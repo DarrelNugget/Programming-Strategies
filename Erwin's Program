@@ -24,18 +24,30 @@ while welcome:
     while message:
 
         periodOfTime = day
-        goodMsg = "You did well this period! Keep up the great work!"
+        goodMsg = f"You did well this {periodOfTime}! Keep up the great work!"
 
-        #when method is picked
-        if pickMethod == methods[2] and day == daysOfWeek[6]:
+        if pickMethod == methods[2] and day == daysOfWeek[6] and amountSold >= 10000:
             print(f"Total profit for the week is: ${amountSold:.2f}\n" + "You did good this week!")
             day = 0
             break
-        if pickMethod == methods[3] and day == daysOfWeek[4]:
+        if pickMethod == methods[3] and day == daysOfWeek[4] and amountSold >= 10000:
             print(f"Total profit for the week is (business days): ${amountSold:.2f}\n" + "You did good this week (business days)!")
             day = 0
             break
-        if pickMethod == methods[4] and day == daysOfWeek[6]:
+        if pickMethod == methods[4] and day == daysOfWeek[6] and amountSold >= 10000:
+            print(f"Total profit for the weekend is: ${amountSold:.2f}\n" + "You did good this weekend!")
+            day = 0
+            break
+
+        if pickMethod == methods[2] and day == daysOfWeek[6] and amountSold < 10000:
+            print(f"Total profit for the week is: ${amountSold:.2f}\n" + "You did good this week!")
+            day = 0
+            break
+        if pickMethod == methods[3] and day == daysOfWeek[4] and amountSold < 10000:
+            print(f"Total profit for the week is (business days): ${amountSold:.2f}\n" + "You did good this week (business days)!")
+            day = 0
+            break
+        if pickMethod == methods[4] and day == daysOfWeek[6] and amountSold < 10000:
             print(f"Total profit for the weekend is: ${amountSold:.2f}\n" + "You did good this weekend!")
             day = 0
             break
@@ -113,6 +125,7 @@ while welcome:
                 continue
 
             quantity = float(input("Enter quantity sold:\n"))
+            
             catCalcs1 = float(120.45 * quantity)
             catCalcs2 = float(99.50 * quantity)
             catCalcs3 = float(75.69 * quantity)
