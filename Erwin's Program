@@ -11,6 +11,8 @@ named_days_value = {
     'Sunday':0,
 }
 
+daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
 day = 0
 weekendDays = "Sunday" and "Saturday"
 
@@ -36,66 +38,67 @@ while welcome:
                 continue
 
     while message:
-        if day == "Sunday" and pickMethod == "2":
+        if pickMethod == "2" and day == daysOfWeek[6]:
             print(f"Total profit for the week is: ${amountSold:.2f}\n" + "You did good this week!")
+            day = 0
             break
-        if day == 2 and pickMethod == "3":
+        if pickMethod == "3" and day == daysOfWeek[4]:
             print(f"Total profit for the week is (business days): ${amountSold:.2f}\n" + "You did good this week (business days!")
+            day = 0
             break
         while pickMethod == "2":
             if day == 0:
-                day = "Monday"
+                day = daysOfWeek[0]
                 print("For",day)
                 break
-            if day == "Monday":
-                day = "Tuesday"
+            if day == daysOfWeek[0]:
+                day = daysOfWeek[1]
                 print("For",day)
                 break
-            if day == "Tuesday":
-                day = "Wednesday"
+            if day == daysOfWeek[1]:
+                day = daysOfWeek[2]
                 print("For",day)
                 break
-            if day == "Wednesday":
-                day = "Thursday"
+            if day == daysOfWeek[2]:
+                day = daysOfWeek[3]
                 print("For",day)
                 break
-            if day == "Thursday":
-                day = "Friday"
+            if day == daysOfWeek[3]:
+                day = daysOfWeek[4]
                 print("For",day)
                 break
-            if day == "Friday":
-                day = "Saturday"
+            if day == daysOfWeek[4]:
+                day = daysOfWeek[5]
                 print("For",day)
                 break
-            if day == "Saturday":
-                day = "Sunday"
+            if day == daysOfWeek[5]:
+                day = daysOfWeek[6]
                 print("For",day)
                 break
-            if day == "Sunday":
+            if day == daysOfWeek[6]:
                 break
         while pickMethod == "3":
-            if day == 1:
-                day = "Monday"
+            if day == 0:
+                day = daysOfWeek[0]
                 print("For",day)
                 break
-            if day == "Monday":
-                day = "Tuesday"
+            if day == daysOfWeek[0]:
+                day = daysOfWeek[1]
                 print("For",day)
                 break
-            if day == "Tuesday":
-                day = "Wednesday"
+            if day == daysOfWeek[1]:
+                day = daysOfWeek[2]
                 print("For",day)
                 break
-            if day == "Wednesday":
-                day = "Thursday"
+            if day == daysOfWeek[2]:
+                day = daysOfWeek[3]
                 print("For",day)
                 break
-            if day == "Thursday":
-                day = "Friday"
+            if day == daysOfWeek[3]:
+                day = daysOfWeek[4]
                 print("For",day)
                 break
-            if day == "Friday":
-                day = 2
+            if day == daysOfWeek[4]:
                 break
         while pickMethod == "4":
             if day == 2:
