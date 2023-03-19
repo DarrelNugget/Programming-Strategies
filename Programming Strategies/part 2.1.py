@@ -42,12 +42,7 @@ while True:
 
     if(days == 1):#this should be working now
         day_value+=1
-        spec_days = (input('''
-    Enter a specific day [Monday, Tuesday, 
-    Wednesday, Thursday, Friday, Saturday, 
-    Sunday]
-
-    '''))
+        spec_days = (input("Enter a specific day [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]\n"))
         first = spec_days[0]
         rest = spec_days[1:]
         for keys in named_days_value:
