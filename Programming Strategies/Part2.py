@@ -10,8 +10,6 @@ days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sun
 
 programRunning = True
 
-
-
 print("Welcome to Circle Phones Profit' calculator. You can calculate your profits for a specific day,\nby week or you can divide the week into weekdays and the weekend.")
 print("Welcome to Circle Phones Profit Calculator\n")
 
@@ -28,26 +26,27 @@ while programRunning == True:
             programRunning = False
             break
         elif daySelection == 1: #Single Day
-            specificDay = input("Enter a specific day [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]\n")
-            if specificDay == "Monday":
+            specificDay= input("Enter a specific day [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]\n")
+            upperCheck = specificDay.upper()
+            if upperCheck == "MONDAY":
                 startingDay = 0
                 endingDay = 1
-            elif specificDay == "Tuesday":
+            elif upperCheck == "TUESDAY":
                 startingDay = 1
                 endingDay = 2
-            elif specificDay == "Wednesday":
+            elif upperCheck == "WEDNESDAY":
                 startingDay = 2
                 endingDay = 3
-            elif specificDay == "Thursday":
+            elif upperCheck == "THURSDAY":
                 startingDay = 3
                 endingDay = 4
-            elif specificDay == "Friday":
+            elif upperCheck == "FRIDAY":
                 startingDay = 4
                 endingDay = 5
-            elif specificDay == "Saturday":
+            elif upperCheck == "SATURDAY":
                 startingDay = 5
                 endingDay = 6
-            elif specificDay == "Sunday":
+            elif upperCheck == "SUNDAY":
                 startingDay = 6
                 endingDay = 7
             break
@@ -68,7 +67,8 @@ while programRunning == True:
 
     #Set the message for profit depending on the daySelection
     if daySelection == 1:
-        profitMessage = specificDay
+        profitMessage = specificDay.lower()
+        profitMessage = specificDay.capitalize()
     elif daySelection == 2:
         profitMessage = "week"
     elif daySelection == 3:
