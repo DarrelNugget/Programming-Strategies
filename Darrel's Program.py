@@ -103,9 +103,9 @@ while programRunning == True:
         if (days.index(i) + 1) == endingDay:
             if sum >= 10000:
                 goodMsg = (f"You did well this {profitMessage}! Keep up the great work!\n")
-                print(f"Your total profit for the {profitMessage} is: {sum:.2f}\n" + goodMsg)
+                print(f"Your total profit for the {profitMessage} is: ${sum:.2f}\n" + goodMsg)
             elif sum < 10000:
                 badMsg = (f"We didn't reach our goal for this {profitMessage}. More work is needed!\n")
-                print(f"Your total profit for the {profitMessage} is: {sum:.2f}\n" + badMsg)
+                print(f"Your total profit for the {profitMessage} is: ${sum:.2f}\n" + badMsg)
 
 print("Program End!")
