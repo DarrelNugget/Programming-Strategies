@@ -1,20 +1,27 @@
 welcome = "Welcome to Circuit Phones' Profit Calculator!"
 print(welcome)
 
+errorMsg = "INAVLID INPUT: Please enter a valid input"
+
+# VERY IMPORTANT Variables
 daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 methods = ['0', '1', '2', '3', '4']
 categories = ['0', '1', '2', '3', '4', '5']
-errorMsg = "INAVLID INPUT: Please enter a valid input"
 
+# Program will stay in this loop until 0 is inputted
 while welcome:
+
+    # IMPORTANT Variables
     day = 0
     amountSold = int(0)
+
     message = "You can calculate the profit of the company according to a specific day or by a week or divide the week into weekdays and weekend."
     choiceOfDays = "Enter a specific day [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]\n"
     print(message)
 
     pickMethod = input("Enter:\n1 - For specific day\n2 - For the Week\n3 - For Week Business Days\n4 - For Weekend Days\n0 - Exit\n")
 
+    # Ends the program
     if pickMethod == methods[0]:
         print("Program End")
         break
@@ -29,34 +36,35 @@ while welcome:
         period = ['week', 'week (business days)', 'weekend']
 
         goodDayMsg = f"You did well this {periodOfTime}! Keep up the great work!"
-        badDayMsg = f"More hard work needed...The last {periodOfTime} wasn't the best"
+        badDayMsg = f"More hard work needed! The last {periodOfTime} wasn't the best"
 
         if pickMethod == methods[2] and day == daysOfWeek[6] and amountSold >= 10000:
-            print(f"Total profit for the week is: ${amountSold:.2f}\n" + f"You did good this {period[0]}!")
+            print(f"Total profit for the {period[0]} is: ${amountSold:.2f}\n" + f"You did good this {period[0]}!")
             day = 0
             break
         if pickMethod == methods[3] and day == daysOfWeek[4] and amountSold >= 10000:
-            print(f"Total profit for the week is (business days): ${amountSold:.2f}\n" + f"You did good this {period[1]}!")
+            print(f"Total profit for the {period[1]} is: ${amountSold:.2f}\n" + f"You did good this {period[1]}!")
             day = 0
             break
         if pickMethod == methods[4] and day == daysOfWeek[6] and amountSold >= 10000:
-            print(f"Total profit for the weekend is: ${amountSold:.2f}\n" + f"You did good this {period[2]}!")
+            print(f"Total profit for the {period[2]} is: ${amountSold:.2f}\n" + f"You did good this {period[2]}!")
             day = 0
             break
 
         if pickMethod == methods[2] and day == daysOfWeek[6] and amountSold < 10000:
-            print(f"Total profit for the week is: ${amountSold:.2f}\n" + f"We didn't reach our goal for this {period[0]}. More work is needed!")
+            print(f"Total profit for the {period[0]} is: ${amountSold:.2f}\n" + f"We didn't reach our goal for this {period[0]}. More work is needed!")
             day = 0
             break
         if pickMethod == methods[3] and day == daysOfWeek[4] and amountSold < 10000:
-            print(f"Total profit for the week is (business days): ${amountSold:.2f}\n" + f"We didn't reach our goal for this {period[1]}. More work is needed!")
+            print(f"Total profit for the {period[1]} is: ${amountSold:.2f}\n" + f"We didn't reach our goal for this {period[1]}. More work is needed!")
             day = 0
             break
         if pickMethod == methods[4] and day == daysOfWeek[6] and amountSold < 10000:
-            print(f"Total profit for the weekend is: ${amountSold:.2f}\n" + f"We didn't reach our goal for this {period[2]}. More work is needed!")
+            print(f"Total profit for the {period[2]} is: ${amountSold:.2f}\n" + f"We didn't reach our goal for this {period[2]}. More work is needed!")
             day = 0
             break
         
+        # while loop for method 1
         if pickMethod == methods[1] and day == 0:
             days = input(choiceOfDays)
             first = days[0]
@@ -69,7 +77,7 @@ while welcome:
                 print("For", day)
                 continue
 
-        #loop for printing the days in a week
+        # while loop for methods 2 to 4
         while pickMethod == methods[2] or pickMethod == methods[3] or pickMethod == methods[4]:
             if (day == 0 and pickMethod == methods[2]) or (day == 0 and pickMethod == methods[3]):
                 day = daysOfWeek[0]
