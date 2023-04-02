@@ -68,8 +68,8 @@ def computeRoomArea():
     print("Thank you!")
     times = 0
     newArea = 0
-    gallons = 0
-    paintPrice = 0
+    newGallons = 0
+    newPaintPrice = 0
     while times != totalRooms:
         times += 1
         currentRoom = f"Room: {times}"
@@ -82,9 +82,11 @@ def computeRoomArea():
         if roomShape == 3:
             area = computeCustomWallsArea() - computeWindowsDoorsArea()
         newArea += area
-        gallons += computeGallons(area)
-        paintPrice += computePaintPrice(area)
+        gallons = computeGallons(area)
+        paintPrice = computePaintPrice(area)
+        newGallons += gallons
+        newPaintPrice += paintPrice
         print(f"For {currentRoom}, " + f"the area to be painted is {area:.1f} square ft and will require {gallons:.2f} gallons to paint. This will cost the customer ${paintPrice:.2f}.")
-    return print(f"Area to be painted is {newArea:.1f} square ft and will require {gallons:.2f} gallons to paint. This will cost the customer ${paintPrice:.2f}.")
+    return print(f"Area to be painted is {newArea:.1f} square ft and will require {newGallons:.2f} gallons to paint. This will cost the customer ${newPaintPrice:.2f}.")
 
 computeRoomArea()
