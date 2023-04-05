@@ -7,7 +7,7 @@ paint_coverage = 350 #paint coverage for ft2/gal
 gallon_cost = 42 #price per #CDN/gal
 labor_cost = 0 #included in price of paint
 
-def compute_room_area(room_num, Custom_Wall_Area, rectangle_area, square_area, Windows_Doors_Area,):
+def compute_room_area(room_num, Custom_Wall_Area, rectangle_area, square_area, Windows_Doors_Area, total_area, Paint_Price):
     options = int(input('''
 Select the Shape of the Room:
 1-Rectangular
@@ -70,11 +70,15 @@ def compute_Custom_Walls_Area(windows_doors):
     Custom_Wall_Area = CW_height * CW_length
     return Custom_Wall_Area
 
-def compute_Gallons():
-    print #these prints are place holders
+def compute_Gallons(rectangle_area, square_area, Custom_Wall_Area, Windows_Doors_Area):
+    gallon = 0
+    total_area = ((square_area + rectangle_area + Custom_Wall_Area) - Windows_Doors_Area)
+    gallon += total_area / paint_coverage
+    return gallon
 
-def compute_Paint_Pice():
-    print#these prints are place holders
+def compute_Paint_Pice(gallon):
+    Paint_Price = gallon * gallon_cost
+    return Paint_Price
 
 
 
