@@ -20,12 +20,14 @@ def computeRoomArea():
         currentRoom = f"Room: {times}"
         print(currentRoom)
         roomShape = int(input("Select the shape of the room:\n1 - Rectangular\n2 - Square\n3 - Custom (more or less than 4 walls , all square or rectangles)\n"))
+        #If Statments to figure out which type of room
         if roomShape == 1:
             area = computeRectangleWallsAreas() - computeWindowsDoorsArea()
         if roomShape == 2:
             area = computeSquareWallAreas() - computeWindowsDoorsArea()
         if roomShape == 3:
             area = computeCustomWallsArea() - computeWindowsDoorsArea()
+        #Final part figures out the gallons for the pricing and prints out a statment with all the information 
         newArea += area
         gallons = computeGallons(area)
         paintPrice = computePaintPrice(area)
@@ -63,6 +65,7 @@ def computeWindowsDoorsArea():
     windowsOrDoorsInput = int(input("How many windows and doors the room contain?\n"))
     times = 0
     windowsDoorsArea = 0
+    #While loop to repeat the amount of doors/windows
     while times != windowsOrDoorsInput:
         times += 1
         length = float(input(f"Enter windows/door length for window/door {times}\n"))
@@ -75,6 +78,7 @@ def computeCustomWallsArea():
     wallAmount = int(input("How many walls are there in the room:\n"))
     times = 0
     customWallsArea = 0
+    #While loop to repeat the amount of walls to be calculated 
     while times != wallAmount:
         times += 1
         height = float(input(f"Enter the height of wall {times}\n"))
