@@ -20,14 +20,12 @@ def computeRoomArea():
         currentRoom = f"Room: {times}"
         print(currentRoom)
         roomShape = int(input("Select the shape of the room:\n1 - Rectangular\n2 - Square\n3 - Custom (more or less than 4 walls , all square or rectangles)\n"))
-        #If Statments to figure out which type of room
         if roomShape == 1:
             area = computeRectangleWallsAreas() - computeWindowsDoorsArea()
         if roomShape == 2:
             area = computeSquareWallAreas() - computeWindowsDoorsArea()
         if roomShape == 3:
             area = computeCustomWallsArea() - computeWindowsDoorsArea()
-        #Final part figures out the gallons for the pricing and prints out a statment with all the information 
         newArea += area
         gallons = computeGallons(area)
         paintPrice = computePaintPrice(area)
